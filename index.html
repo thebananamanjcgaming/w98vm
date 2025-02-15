@@ -23,10 +23,17 @@
     return a / b;
   },
 
-  function greet(name) {
-    let name = prompt("What's your name?", "Guest")
-    return "Hello, " + name + "!";
-  },
+function greet(name) {
+  let userName = prompt("What's your name?", "Guest");
+
+  if (userName === null) {
+    return "Hello, Guest";
+  } else if (userName.trim() === "") {
+        return "Hello, Guest!";
+  } else {
+    return "Hello, " + userName + "!";
+  }
+}
 
   function isEven(number) {
     return number % 2 === 0;
