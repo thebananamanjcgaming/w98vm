@@ -97,10 +97,8 @@ function interpret(bytecode) {
       case 10:
         const a2 = stack.pop();
         const b2 = stack.pop();
+        stack.push();
         break;
-        default:
-        console.error("Unknown opcode:", opcode);
-        return;
       default:
         console.error("Unknown opcode:", opcode);
         return;
