@@ -90,8 +90,8 @@ function interpret(bytecode) {
         stack.push(a + b);
         break;
       case 2:
-        const a = stack.pop();
-        const b = stack.pop();
+        const a1 = stack.pop();
+        const b1 = stack.pop();
         stack.push(a - b);
         break;
       default:
