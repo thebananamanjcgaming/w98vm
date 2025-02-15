@@ -1,0 +1,140 @@
+<DOCTYPEHTML!>
+  <title>w98vm | windows 98 in the browser</title>
+  <html>
+    <body>
+      <h1 title="deprecated">deprecated</h1>
+      <script id="array">const functionArray = [
+  function add(a, b) {
+    return a + b;
+  },
+
+  function subtract(a, b) {
+    return a - b;
+  },
+
+  function multiply(a, b) {
+    return a * b;
+  },
+
+  function divide(a, b) {
+    if (b === 0) {
+      return "Cannot divide by zero";
+    }
+    return a / b;
+  },
+
+  function greet(name) {
+    return "Hello, " + name + "!";
+  },
+
+  function isEven(number) {
+    return number % 2 === 0;
+  },
+
+  function square(x) {
+    return x * x;
+  },
+
+  function cube(x) {
+      return x * x * x;
+  },
+
+  function capitalize(str) {
+      if (typeof str !== 'string' || str.length === 0) {
+          return str;
+      }
+      return str.charAt(0).toUpperCase() + str.slice(1);
+  },
+
+  function reverseString(str) {
+    if (typeof str !== 'string') {
+        return "Invalid input";
+    }
+    return str.split('').reverse().join('');
+  }
+];
+
+
+console.log(functionArray[0](5, 3));
+console.log(functionArray[1](10, 4));
+console.log(functionArray[4]("Alice"));
+console.log(functionArray[5](7));
+console.log(functionArray[9]("hello"));
+
+for (let i = 0; i < functionArray.length; i++) {
+  if (typeof functionArray[i] === 'function') {
+    if (i < 4) {
+      console.log(`Result of function ${i+1}:`, functionArray[i](2,3));
+    } else if (i === 4) {
+      console.log(`Result of function ${i+1}:`, functionArray[i]("Bob"));
+    } else if (i === 5) {
+      console.log(`Result of function ${i+1}:`, functionArray[i](10));
+    } else if (i === 9) {
+      console.log(`Result of function ${i+1}:`, functionArray[i]("javascript"));
+    }
+  }
+}</script>
+      <script id="jvm">const instructions = [1, 10, 20, 2, 5, 3];
+
+function interpret(bytecode) {
+  let stack = [];
+  let pc = 0;
+
+  while (pc < bytecode.length) {
+    const opcode = bytecode[pc++];
+
+    switch (opcode) {
+      case 1:
+        const a = stack.pop();
+        const b = stack.pop();
+        stack.push(a + b);
+        break;
+      case 2:
+        const a = stack.pop();
+        const b = stack.pop();
+        stack.push(a - b);
+        break;
+      default:
+        console.error("Unknown opcode:", opcode);
+        return;
+    }
+  }
+
+  console.log("Result:", stack.pop());
+}
+
+interpret(instructions);</script>
+      <script id="allocation">
+const buffer = new ArrayBuffer(500 * 1024 * 1024);
+const myArray = new Uint8Array(buffer);</script>
+      
+      <input type="file" id="fileInput">
+<br><br>
+<textarea id="fileContents" rows="20" cols="80" readonly></textarea>
+
+<script id="vmselector">
+  const fileInput = document.getElementById('fileInput');
+  const fileContents = document.getElementById('fileContents');
+
+  fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        fileContents.value = e.target.result;
+      }
+
+      reader.onerror = (error) => {
+        fileContents.value = "Error reading file: " + error.message;
+      };
+
+      reader.readAsText(file);
+    } else {
+      fileContents.value = "No file selected.";
+    }
+  });
+</script>
+    </body>
+  </html>
