@@ -24,20 +24,11 @@
   },
 
 function greet(name) {
-  let userName = prompt("What's your name?", "Guest");
-
-  if (userName === null) {
-    return "Hello, Guest";
-  } else if (userName.trim() === "") {
-        return "Hello, Guest!";
-  } else {
-    return "Hello, " + userName + "!";
-  }
-}
+  return "Hello, " + name + "!";
 
   function isEven(number) {
     return number % 2 === 0;
-  }
+  },
 
   function square(x) {
     return x * x;
